@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GeckoPost - トカゲ・ヤモリ・イモリ・カナヘビ情報サイト</title>
+<style>
+  body {
+    background-color: #000;
+    color: #eee;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0; padding: 20px;
+  }
+  h1, h2, h3 {
+    color: #9acdff;
+  }
+  a {
+    color: #66ccff;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  nav {
+    margin-bottom: 20px;
+  }
+  nav button {
+    background-color: #222;
+    border: none;
+    color: #9acdff;
+    padding: 10px 15px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  nav button:hover, nav button.active {
+    background-color: #66ccff;
+    color: #000;
+  }
+  section {
+    display: none;
+  }
+  section.active {
+    display: block;
+  }
+  .glowable {
+    transition: text-shadow 0.5s ease;
+    cursor: default;
+  }
+  .glowable:hover {
+    text-shadow: 0 0 8px #9acdff;
+  }
+  .warning {
+    color: #ff4444;
+    font-weight: bold;
+  }
+  .warning:hover {
+    text-shadow: 0 0 10px #ff4444;
+    cursor: default;
+  }
+  .food {
+    color: #4CAF50;
+    font-weight: bold;
+    transition: text-shadow 0.5s ease;
+  }
+  .food:hover {
+    text-shadow: 0 0 8px #4CAF50;
+    cursor: pointer;
+  }
+  .difficulty {
+    color: #E91E63;
+    font-weight: bold;
+    transition: text-shadow 0.5s ease;
+  }
+  .difficulty:hover {
+    text-shadow: 0 0 8px #E91E63;
+    cursor: pointer;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  th, td {
+    border: 1px solid #555;
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    background-color: #222;
+  }
+  form label {
+    display: block;
+    margin: 5px 0;
+  }
+  input[type="text"], input[type="date"], textarea {
+    width: 90%;
+    padding: 5px;
+    margin-top: 3px;
+    border-radius: 4px;
+    border: 1px solid #555;
+    background-color: #111;
+    color: #eee;
+  }
+  textarea {
+    resize: vertical;
+  }
+  input[type="submit"], button.submit-btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  input[type="submit"]:hover, button.submit-btn:hover {
+    background-color: #45a049;
+  }
+  ol.ranking-list {
+    padding-left: 20px;
+  }
+  #radar-map {
+    width: 100%;
+    height: 300px;
+    background: radial-gradient(circle at center, #111 0%, #000 80%);
+    border: 2px solid #444;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+<h1>GeckoPost - トカゲ・ヤモリ・イモリ・カナヘビ情報サイト</h1>
+
+<nav>
+  <button class="tab-btn active" data-target="info-section">情報一覧</button>
+  <button class="tab-btn" data-target="diary-section">観察日記モード</button>
+  <button class="tab-btn" data-target="breeding-section">トカゲ育成モード</button>
+  <button class="tab-btn" data-target="ranking-section">発見ランキングモード</button>
+  <button class="tab-btn" data-target="egg-section">卵の成長モード</button>
+  <button class="tab-btn" data-target="radar-section">ご近所トカゲレーダー</button>
+</nav>
+
+<section id="info-section" class="active">
+  <h2>トカゲ・ヤモリ・イモリ・カナヘビ 基本情報</h2>
+
+  <article>
+    <h3>日本トカゲ</h3>
+    <p><strong class="food glowable">エサ:</strong> コオロギ、ミールワーム、小さい虫</p>
+    <p><strong class="difficulty glowable">飼育の難しさ:</strong> ★★★☆☆（中級）</p>
+    <p><strong>注意点:</strong> <span class="warning">急激な温度変化に弱いので温度管理をしっかり！</span></p>
+    <p><strong>よくいる場所:</strong> 山林、草地、公園、住宅地の庭</p>
+  </article>
+
+  <article>
+    <h3>ヤモリ</h3>
+    <p><strong class="food glowable">エサ:</strong> 蚊、蛾、コオロギ、クモなどの小さな虫</p>
+    <p><strong class="difficulty glowable">飼育の難しさ:</strong> ★★☆☆☆（初心者向け）</p>
+    <p><strong>注意点:</strong> <span class="warning">湿度を保つことが大切。乾燥しすぎに注意！</span></p>
+    <p><strong>よくいる場所:</strong> 家の壁、窓辺、庭の灯りの近く</p>
+  </article>
+
+  <article>
+    <h3>イモリ</h3>
+    <p><strong class="food glowable">エサ:</strong> ミミズ、小さな昆虫、水生昆虫</p>
+    <p><strong class="difficulty glowable">飼育の難しさ:</strong> ★★★☆☆（中級）</p>
+    <p><strong>注意点:</strong> <span class="warning">水質管理が重要。きれいな水を保つこと！</span></p>
+    <p><strong>よくいる場所:</strong> 池や水辺の近く、湿った森林地帯</p>
+  </article>
+
+  <article>
+    <h3>カナヘビ</h3>
+    <p><strong class="food glowable">エサ:</strong> コオロギ、ミルワーム、小型の昆虫</p>
+    <p><strong class="difficulty glowable">飼育の難しさ:</strong> ★★☆☆☆（初心者〜中級）</p>
+    <p><strong>注意点:</strong> <span class="warning">逃げやすいので飼育ケージはしっかり密閉すること！</span></p>
+    <p><strong>よくいる場所:</strong> 草原、公園、住宅地の庭など</p>
+  </article>
+</section>
+
+<section id="diary-section">
+  <h2>観察日記モード</h2>
+  <form id="diary-form">
+    <label for="date">日付:</label>
+    <input type="date" id="date" name="date" required />
+    <label for="location">場所:</label>
+    <input type="text" id="location" name="location" placeholder="例: 自宅の庭" required />
+    <label for="species">見つけたトカゲの種類:</label>
+    <input type="text" id="species" name="species" placeholder="例: 日本トカゲ" required />
+    <label for="memo">メモ:</label>
+    <textarea id="memo" name="memo" rows="4" placeholder="特徴や気づいたこと"></textarea>
+    <input type="submit" value="記録する" />
+  </form>
+  <div id="diary-entries"></div>
+</section>
+
+<section id="breeding-section">
+  <h2>トカゲ育成モード</h2>
+  <form id="breeding-form">
+    <label for="breed-name">名前:</label>
+    <input type="text" id="breed-name" name="breed-name" placeholder="例: きいろちゃん" required />
+    <label for="breed-type">種類:</label>
+    <input type="text" id="breed-type" name="breed-type" placeholder="例: カナヘビ" required />
+    <label for="breed-age">年齢（月齢）:</label>
+    <input type="number" id="breed-age" name="breed-age" min="0" max="120" value="0" required />
+    <label for="breed-memo">育成メモ:</label>
+    <textarea id="breed-memo" name="breed-memo" rows="4" placeholder="健康状態など"></textarea>
+    <input type="submit" value="育成記録を追加" />
+  </form>
+  <div id="breeding-entries"></div>
+</section>
+
+<section id="ranking-section">
+  <h2>発見ランキングモード</h2>
+  <ol class="ranking-list" id="ranking-list">
+    <li>日本トカゲ - 23回</li>
+    <li>ヤモリ - 18回</li>
+    <li>イモリ - 12回</li>
+    <li>カナヘビ - 9回</li>
+  </ol>
+</section>
+
+<section id="egg-section">
+  <h2>卵の成長モード</h2>
+  <p>トカゲの卵は通常、20〜40日で孵化します。</p>
+  <p>飼育環境によって差がありますので、温度と湿度管理をしましょう。</p>
+</section>
+
+<section id="radar-section">
+  <h2>ご近所トカゲレーダー</h2>
+  <div id="radar-map">（ここにマップが表示されます）</div>
+  <p>※ 実装予定：スマホのGPSと連動して近所のトカゲ出現情報を表示</p>
+</section>
+
+<script>
+  // タブ切り替え
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      btn.classList.add('active');
+      const target = btn.getAttribute('data-target');
+      document.getElementById(target).classList.add('active');
+    });
+  });
+
+  // 観察日記記録処理
+  const diaryForm = document.getElementById('diary-form');
+  const diaryEntriesDiv = document.getElementById('diary-entries');
+  diaryForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const date = diaryForm.date.value;
+    const location = diaryForm.location.value;
+    const species = diaryForm.species.value;
+    const memo = diaryForm.memo.value;
+
+    const entryDiv = document.createElement('div');
+    entryDiv.style.border = "1px solid #444";
+    entryDiv.style.padding = "8px";
+    entryDiv.style.marginTop = "8px";
+    entryDiv.innerHTML = `<strong>${date} - ${species}（${location}）</strong><br>${memo}`;
+    diaryEntriesDiv.prepend(entryDiv);
+
+    diaryForm.reset();
+  });
+
+  // 育成記録処理
+  const breedingForm = document.getElementById('breeding-form');
+  const breedingEntriesDiv = document.getElementById('breeding-entries');
+  breedingForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = breedingForm['breed-name'].value;
+    const type = breedingForm['breed-type'].value;
+    const age = breedingForm['breed-age'].value;
+    const memo = breedingForm['breed-memo'].value;
+
+    const entryDiv = document.createElement('div');
+    entryDiv.style.border = "1px solid #444";
+    entryDiv.style.padding = "8px";
+    entryDiv.style.marginTop = "8px";
+    entryDiv.innerHTML = `<strong>${name} (${type}) - ${age}ヶ月</strong><br>${memo}`;
+    breedingEntriesDiv.prepend(entryDiv);
+
+    breedingForm.reset();
+  });
+</script>
+
+</body>
+</html>
+<section id="egg-section">
+  <h2>卵の成長モード</h2>
+  <p>トカゲの卵は通常、20〜40日で孵化します。</p>
+  <p>飼育環境によって差がありますので、温度と湿度管理をしましょう。</p>
+
+  <h3>赤ちゃんトカゲの育て方</h3>
+  <p><strong>育成期間:</strong> 赤ちゃんトカゲは約6ヶ月で大人になります。</p>
+  <p><strong class="food">エサ:</strong> 小さな昆虫（ミールワームの小さいものやコオロギの幼虫など）を与えましょう。</p>
+  <p><strong class="difficulty">注意点:</strong> <span class="warning">温度変化に敏感なので、ケージ内の温度を一定に保ちましょう。逃げやすいので蓋はしっかり閉めてください。</span></p>
+</section>
+
